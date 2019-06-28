@@ -6,19 +6,7 @@
   become: true
   vars_files:
     - "./vars/main.yml"
-    - ~/.ansible/vars/rhel_local_mirrors_vars.yml
-  vars:
-    sudo_defaults:
-      - defaults: '!requiretty'
-  roles:
-    - role: geerlingguy.nginx
-      tags:
-        - prepare_system
   tasks:
-    - include: rhel_register.yml
-      when: subscribe_rhn|bool == True
-      tags:
-        - rhel_register
     - include: prepare_system.yml
       tags:
         - prepare_system
@@ -29,7 +17,6 @@
       when: repo_autosync|bool == True
       tags:
         - prepare_cron
-
     - include: remove_cron.yml
       when: repo_autosync|bool == False
       tags:

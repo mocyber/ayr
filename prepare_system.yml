@@ -6,43 +6,10 @@
       with_items:
           - createrepo
           - yum-utils
+          - httpd
 
-    - name: Install needed packaged for firewalld
-      package:
-          name: "{{ item }}"
-          state: present
-      with_items:
-          - python-firewall
+  #  set firewall stuff here
 
-    - name: Check if iptables is running
-      command: systemctl is-active iptables
-      ignore_errors: yes
-      changed_when: false
-      register: iptables_service_status
-
-    - name: Check if firewalld is running
-      command: systemctl is-active firewalld
-      ignore_errors: yes
-      changed_when: false
-      register: firewalld_service_status
-
-    - name: Open firewall port for input http (iptables)
-      command: "iptables -A INPUT  -p tcp -m tcp --dport 80 -m conntrack --ctstate ESTABLISHED,NEW -j ACCEPT -m comment --comment 'Allow http connections to port 80'"
-      when: iptables_service_status.stdout == 'active'
-
-    - name: Open firewall port for output http (iptables)
-      command: "iptables -A INPUT  -p tcp -m tcp --dport 80 -m conntrack --ctstate ESTABLISHED,NEW -j ACCEPT -m comment --comment 'Allow http connections from port 80'"
-      when: iptables_service_status.stdout == 'active'
-
-    - name: Open firewall port for http (firewall)
-      firewalld:
-          service: http
-          permanent: true
-          state: enabled
-          immediate: true
-      when: firewalld_service_status.stdout == 'active'
-
-    - name: Create directory to contain mirrors
       file:
         path: "/var/www/mirrors"
         state: directory
