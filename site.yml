@@ -1,8 +1,8 @@
 # vim: set ft=ansible
 # site.yml
 ---
-
-- hosts: rhel_mirrors
+# add any additional mirrors if you need to otherwise leave default so it will only deploy on localhost
+- hosts: repo_mirrors
   become: true
   vars_files:
     - "./vars/main.yml"
