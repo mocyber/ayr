@@ -8,8 +8,28 @@
           - yum-utils
           - httpd
 
-  #  set firewall stuff here
+    - name: Install needed packaged for firewalld
+      package:
+          name: "{{ item }}"
+          state: present
+      with_items:
+          - python-firewall
 
+    - name: Check if firewalld is running
+      command: systemctl is-active firewalld
+      ignore_errors: yes
+      changed_when: false
+      register: firewalld_service_status
+
+    - name: Open firewall port for http (firewall)
+      firewalld:
+          service: http
+          permanent: true
+          state: enabled
+          immediate: true
+      when: firewalld_service_status.stdout == 'active'
+
+    - name: Create directory to contain mirrors
       file:
         path: "/var/www/mirrors"
         state: directory
