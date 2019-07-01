@@ -1,5 +1,5 @@
 # Alternate Yum Repository
-Used to create a local mirror for redistribution on a local network. If you live in the sticks I do bandwidth is precious so reaching out repeatedly to get the same stuff sucks. I have forked the orginal and simplfied it a little. The big difference is that you will have to regester your RHEL stuff prior to firing things off. I don't like keeping my RHEL creds in a clear text file. This also makes it easier to deploy on centos.
+Used to create a local mirror for redistribution on a local network. If you live in the sticks like I do, bandwidth is precious so reaching out repeatedly to get the same stuff sucks. I have forked the orginal and simplfied it a little. The big difference is that you will have to regester your RHEL stuff prior to firing things off instead of adding creds to the script. I don't like keeping my RHEL creds in a clear text file. This also makes it easier to deploy on centos.
 
 ## Prep Work
 - Update things ` sudo yum update`
@@ -13,7 +13,7 @@ Used to create a local mirror for redistribution on a local network. If you live
   - Custom Yum Repository Like "ROCK NSM"
   `sudo yum-config-manager --add-repo https://copr.fedorainfracloud.org/coprs/g/rocknsm/rocknsm-2.1/repo/epel-7/group_rocknsm-rocknsm-2.1-epel-7.repo`
 
-:warning:This a bandwidth intensive operation, grab a cup of coffee or go to lunch. This will take a while! Disable or mo any repos that you do not  :warning:
+:warning:This a bandwidth intensive operation, grab a cup of coffee or go to lunch. This will take a while! Disable or move any repos that you do not  :warning:
 
 One you have repos that you wish to have replicated across you LAN then you fire off the ansible script with `sudo ansible-playbook -vvvv site.yml -i hosts.ini`
 
