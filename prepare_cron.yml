@@ -5,7 +5,7 @@
       minute: "{{ crontab_minute }}"
       month: "{{ crontab_month }}"
       weekday: "{{ crontab_weekday }}"
-      name: "Cronjob to autosync RHEL repo"
+      name: "Cronjob to autosync RHEL/Centos repo"
       state: present
       job: "reposync -l -n -p /var/www/mirrors/general_mirror/ > /dev/null"
   become: true
