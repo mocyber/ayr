@@ -1,25 +1,7 @@
 # register the system?
-subscribe_rhn: true
 repo_autosync: false
 crontab_day: '*'
 crontab_hour: '*'
 crontab_minute: '*'
 crontab_month: '*'
 crontab_weekday: '*'
-mirrors:
-  - name: rhel.repo
-    folder: rhel_repo
-    items:
-        - rhel-7-server-rpms
-        - rhel-7-server-extras-rpms
-        - rhel-7-server-rh-common-rpms
-        - rhel-ha-for-rhel-7-server-rpms
-nginx_vhosts:
-  - listen: "80 default_server"
-    server_name: "_"
-    root: "/var/www/mirrors"
-    state: present
-    extra_parameters: |
-        autoindex on;
-nginx_remove_default_vhost: true
-mirror_ip_address: ''
