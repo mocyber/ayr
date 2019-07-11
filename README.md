@@ -36,3 +36,8 @@ the following vars can be set:
 When setting ``repo_autosync`` var to False, the cronjob will be removed.
 In order to just setup the cronjob, you can execute the playbook with the
 ``prepare_cron`` tag.
+
+
+TODO:
+ - Add script to keep the last 2 versions to the cron job
+ - add back the dynamically built *.repo file
