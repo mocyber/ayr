@@ -16,7 +16,7 @@ Used to create a local mirror for redistribution on a local network. If you live
 
 :warning:This a bandwidth intensive operation, grab a cup of coffee or go to lunch. This will take a while! Disable or move any repos that you do not  :warning:
 
-One you have repos that you wish to have replicated across you LAN then you fire off the ansible script with `sudo ansible-playbook -vvvv site.yml -i hosts.ini`
+One you have repos that you wish to have replicated across you LAN then you fire off the ansible script with `sudo ansible-playbook -vv site.yml -i hosts.ini`
 
 > Note I run this verbose because this usually takes a while and I want to make sure that nothing has died.
 
