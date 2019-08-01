@@ -14,9 +14,9 @@ Used to create a local mirror for redistribution on a local network. If you live
   - Custom Yum Repository Like "ROCK NSM"
   `sudo yum-config-manager --add-repo https://copr.fedorainfracloud.org/coprs/g/rocknsm/rocknsm-2.1/repo/epel-7/group_rocknsm-rocknsm-2.1-epel-7.repo`
 
-:warning:This a bandwidth intensive operation, grab a cup of coffee or go to lunch. This will take a while! Disable or move any repos that you do not  :warning:
+:warning:This a bandwidth intensive operation, grab a cup of coffee or go to lunch. This will take a while! Disable or move any repos that you do not want to be syncd :warning:
 
-One you have repos that you wish to have replicated across you LAN then you fire off the ansible script with `sudo ansible-playbook -vv site.yml -i hosts.ini`
+One you have repos that you wish to have replicated, fire off the ansible script with `sudo ansible-playbook -vv site.yml -i hosts.ini`
 
 > Note I run this verbose because this usually takes a while and I want to make sure that nothing has died.
 
