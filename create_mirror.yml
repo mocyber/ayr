@@ -9,10 +9,6 @@
         mode: 0755
       with_items: "{{ mirrors }}"
 
-    - name: Create symlink for the needed mirrors
-      shell: "ln -s /var/www/html/general_mirror/* /var/www/mirrors/{{ item['folder'] }}/ || true"
-      with_items: "{{ mirrors }}"
-
     - name: Create repositories from local mirror
       shell: "for DIR in `find /var/www/html/{{ item['folder'] }}  -maxdepth 1 -mindepth 1 -type l`; do createrepo $DIR; done; > /dev/null"
       with_items: "{{ mirrors }}"
