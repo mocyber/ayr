@@ -1,7 +1,4 @@
 - block:
-    - name: Create a generic mirror with all repos
-      shell: "reposync -l -n -p /var/www/html/general_mirror > /dev/null"
-
     - name: Create folder for the mirror
       file:
         path: "/var/www/html/{{ item['folder'] }}"
@@ -9,7 +6,8 @@
         mode: 0755
       with_items: "{{ mirrors }}"
 
-    - name: Create repositories from local mirror
-      shell: "for DIR in `find /var/www/html/{{ item['folder'] }}  -maxdepth 1 -mindepth 1 -type l`; do createrepo $DIR; done; > /dev/null"
-      with_items: "{{ mirrors }}"
+    - name: Execute repository creation script
+      script: "./scripts/create_repo.sh {{ item['folder'] }} {{ item['items']|join(',') }}" 
+      with_items: "{{ mirrors }}"  
+
   become: true

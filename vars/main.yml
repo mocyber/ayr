@@ -6,7 +6,7 @@ crontab_month: '*'
 crontab_weekday: '*'
 mirrors:
   - name: rhel.repo
-    folder: rhel_repo
+    folder: general_mirror
     items:
         - rhel-7-server-rpms
 #        - rhel-7-server-extras-rpms
@@ -14,3 +14,4 @@ mirrors:
 #        - rhel-ha-for-rhel-7-server-rpms
 #        - epel
 #        - group_rocknsm-rocknsm-2.1
+#        - atomic

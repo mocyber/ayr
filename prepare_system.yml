@@ -29,11 +29,6 @@
           immediate: true
       when: firewalld_service_status.stdout == 'active'
 
-    - name: Enable service httpd, and not touch the state
-      service:
-          name: httpd
-          enabled: yes
-
     - name: Create directory to contain mirrors
       file:
         path: "/var/www/html"
