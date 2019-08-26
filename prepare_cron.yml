@@ -5,7 +5,7 @@
       minute: "{{ crontab_minute }}"
       month: "{{ crontab_month }}"
       weekday: "{{ crontab_weekday }}"
-      name: "Cronjob to autosync RHEL/Centos repo"
+      name: "Cronjob to autosync repo"
       state: present
-      job: "reposync -l -n -p /var/www/mirrors/general_mirror/ > /dev/null"
+      job: "sudo ansible-playbook ~/ayr/site.yml --tags=create_mirror -i ~/ayr/hosts.ini > /dev/null"
   become: true
