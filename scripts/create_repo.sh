@@ -7,10 +7,10 @@ REPOFILE="${REPOPATH}/${REPO_FOLDER}/local.repo"
 mkdir -p $REPOPATH
 rm $REPOFILE 2> /dev/null
 touch $REPOFILE
- 
+
 echo "${REPOPATH}${REPO_FOLDER}"
 
-reposync -n -l --repoid=$REPO_ITEMS --download_path=/var/www/html/general_mirror/$REPO_ITEMS --downloadcomps --download-metadata
+reposync -n -l --repoid=$REPO_ITEMS --download_path=/var/www/html/general_mirror/ --downloadcomps --download-metadata
 wait
 
 createrepo -v /var/www/html/general_mirror/$REPO_ITEMS -g comps.xml
