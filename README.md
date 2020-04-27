@@ -5,6 +5,7 @@
 sudo yum install -y epel-release
 sudo yum install -y ansible git yum-utils
 sudo yum-config-manager --add-repo https://copr.fedorainfracloud.org/coprs/g/rocknsm/rocknsm-2.1/repo/epel-7/group_rocknsm-rocknsm-2.1-epel-7.repo
+git clone https://github.com/mocyber/ayr.git
 ```
 >NOTE: You dont have to clone all the repos in your `/etc/yum.repos.d/` directory. but if you are going to clone it you need to have it there. Edit the list in `ayr/vars/main.yml` only for the repos you wish to replicate locally. As it sits, `main.yml` is already configured with Epel, Base, and ROCK. You shouldn't need anything else unless you have a specific need.
 
