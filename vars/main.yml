@@ -5,13 +5,9 @@ crontab_minute: '*'
 crontab_month: '*'
 crontab_weekday: '*'
 mirrors:
-  - name: rhel.repo
+  - name: mocyber.repo
     folder: general_mirror
     items:
-        - rhel-7-server-rpms
-        - rhel-7-server-extras-rpms
-        - rhel-7-server-rh-common-rpms
-        - rhel-ha-for-rhel-7-server-rpms
         - epel
         - group_rocknsm-rocknsm-2.1
-        - atomic
+        - CentOS-Base
