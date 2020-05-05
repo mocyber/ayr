@@ -9,5 +9,5 @@ mirrors:
     folder: general_mirror
     items:
         - epel
-        - group_rocknsm-rocknsm-2.1
+        - group_rocknsm-rocknsm-2.1-epel-7
         - CentOS-Base
