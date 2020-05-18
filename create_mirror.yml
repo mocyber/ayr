@@ -1,7 +1,7 @@
 - block:
     - name: Create folder for the mirror
       file:
-        path: "/var/www/html/{{ item['folder'] }}"
+        path: "/srv/yum/{{ item['folder'] }}"
         state: directory
         mode: 0755
       with_items: "{{ mirrors }}"

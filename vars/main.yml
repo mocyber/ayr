@@ -1,6 +1,6 @@
-repo_autosync: false
+repo_autosync: True
 crontab_day: '*'
-crontab_hour: '*'
+crontab_hour: '22'
 crontab_minute: '*'
 crontab_month: '*'
 crontab_weekday: '*'
@@ -9,5 +9,5 @@ mirrors:
     folder: general_mirror
     items:
         - epel
-        - group_rocknsm-rocknsm-2.1-epel-7
+        - group_rocknsm-testing-epel-7
         - CentOS-Base
